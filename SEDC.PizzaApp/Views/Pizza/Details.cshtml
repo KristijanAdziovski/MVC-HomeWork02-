@@ -1,0 +1,21 @@
+﻿@using SEDC.PizzaApp.Models.Domain
+@using SEDC.PizzaApp.Models.ViewModels
+@model Pizza
+
+<h2>Pizza Details</h2>
+<p>@Model.Name</p>
+@{
+    decimal priceExtra = 0m;
+    if(Model.HasExtras)
+    {
+        priceExtra = Model.Price + 10;
+    }
+    else
+    {
+        priceExtra = Model.Price;
+    }
+}
+<p>@priceExtra</p>
+@if(@Model.IsOnPromotion == true){
+    <p>This product is on promotion.</p>
+}
